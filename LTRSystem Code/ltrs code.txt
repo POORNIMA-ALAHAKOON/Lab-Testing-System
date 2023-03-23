@@ -1,0 +1,96 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
+
+
+public class PatientFrame extends javax.swing.JFrame {
+
+public PatientFrame() {
+        initComponents(); }
+    
+
+
+
+
+ Connection con1;
+    PreparedStatement insert;
+
+private void table_update{}
+{ int a;
+
+    try {
+            Class.forName("com.mysql.jdbc.driver");
+            con1 = DriverManager.getConnection("jdbc:mysql://localhost/ltrsdb","root","");
+            insert = connection.PreparedStstement("insert into patient(Patient ID,Patient Name,Test NO)values{?,?,?}");
+            
+            insert.setString(0, name);
+            insert.setString(1, id);
+            insert.setString(2, no);
+            
+            insert.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this,"Data Added");
+           txtname.setText("");
+           txtid.setText("");
+           txtno.setText("");
+           
+            txtname.requestFocus();
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PatientFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(PatientFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+
+
+
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+
+ String name = txtname.getText();
+ String id = txtid.getText();
+ String no = txtno.getText(); 
+  
+    try {
+            Class.forName("com.mysql.jdbc.driver");
+            con1 = DriverManager.getConnection("jdbc:mysql://localhost/ltrsdb","root","");
+           insert = connection.PreparedStstement("select * from table Patient");
+            ResultSet rs = insert.executeQuery();
+            ResultSetMetaData Rss = rs.getMetaData();
+            a = Rss.getColumnCount();
+            
+            DefaultTableModel b = (DefaultTableModel)JTable1.getModel() ;
+
+            
+            JOptionPane.showMessageDialog(this,"Data Added");
+           txtname.setText("");
+           txtid.setText("");
+           txtno.setText("");
+           
+            txtname.requestFocus();
+
+
+
+
+} catch (ClassNotFoundException ex) {
+            Logger.getLogger(PatientFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(PatientFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            Logger.getLogger(PatientFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }                                        
+
+
+
+
+
+
+
+
